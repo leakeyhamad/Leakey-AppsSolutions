@@ -13,6 +13,7 @@ from .forms import *
 def index(request):
     return render(request, 'index.html')
 
+
 def signup(request):
     if request.methodd=='POST':
          username=request.POST["username"]
@@ -21,15 +22,16 @@ def signup(request):
          password2=request.POST["password2"]
          if password1!=password2:
              messages.error("incorrect password/ passwords do not match!")
-             return redirect('/register')
+             return redirect('register')
          new_user=User.objects.create_user(
              username=username,
              email=email,
              password=password1,
          )
          new_user.save()
-         redirect('/login')
+         redirect('login')
     return render(request,'register.html')
+
 
 def signin(request):
     if request.method=='POST':
@@ -39,22 +41,39 @@ def signin(request):
         if user is not None:
             login(request, user)
             messages.sucess(request, "You have logged in successfully")
-            redirect('/project')
+            redirect('project')
     return render(request, 'login.html')  
+
+
+def signout(request):
+    logout(request)
+    redirect(request, 'index.html') 
 
 
 @login_required
 def upload_project(request):
     if request.method=='POST':
-        form=ProjectForm(request.POST, request.FILES )
+        form=ProjectForm(request.POST, request.FILES)
         if form.is_valid():
             project=form.save(commit=False)
             project.user=request.user
             project.save()
             messages.success("We have successfully received the projects details")
-            return redirect('/index')
-    return render(request, 'project.html', {'form':form})       
+            return redirect('index')
+    else:
+        form=ProjectForm()        
+    return render(request, 'project.html', {'form':form}) 
 
-def signout(request):
-    logout(request)
-    redirect(request, 'index.html') 
+@login_required
+def comment(request):
+    if request.method=='POST':
+        form=CommentForm(request.POST, request.FILES)
+        if form.is_valid():
+            comment=form.save(commit=False)
+            comment.user=request.uset
+            comment.save()
+            return redirect('index')
+    else:
+        form=CommentForm()
+    return render(request, 'project.html',{'form':form})            
+

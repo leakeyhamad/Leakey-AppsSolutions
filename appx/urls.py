@@ -1,5 +1,5 @@
 from django import views
-from appx.views import signin, signout, signup, index, upload_project
+from .views import signin, signout, signup, index, upload_project, comment
 from django.urls import path
 
 urlpatterns = [
@@ -7,4 +7,5 @@ urlpatterns = [
     path('/register',views.signup, name="register"),
     path('/login',views.signin, name="login"),
     path('/project', views.upload_project, name="project"),
+    path('/project', views.comment, name='project'),
 ]
