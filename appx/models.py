@@ -50,6 +50,8 @@ class Comment(models.Model):
     class Meta:
         ordering=['created_on']
 
+
+
     def __str__(self):
         return self.comment
     def save_comment(self):
