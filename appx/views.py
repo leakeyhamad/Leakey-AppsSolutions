@@ -10,7 +10,7 @@ from .models import *
 from .forms import *
 
 # Create your views here.
-def index(request):
+def home(request):
     return render(request, 'index.html')
 
 
@@ -75,5 +75,5 @@ def comment(request):
             return redirect('index')
     else:
         form=CommentForm()
-    return render(request, 'project.html',{'form':form})            
+    return render(request, 'comment.html',{'form':form})            
 

@@ -1,11 +1,16 @@
 from django import views
-from .views import signin, signout, signup, index, upload_project, comment
+from . import views
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
-    path('',views.index, name="index"),
-    path('/register',views.signup, name="register"),
-    path('/login',views.signin, name="login"),
-    path('/project', views.upload_project, name="project"),
-    path('/project', views.comment, name='project'),
+    path('',views.home, name="index"),
+    path('register/',views.signup, name="register"),
+    path('login/',views.signin, name="login"),
+    path('project/', views.upload_project, name="project"),
+    path('comment/', views.comment, name='comment'),
 ]
+
+if settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
