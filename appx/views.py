@@ -5,6 +5,9 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
+from .models import *
+from .forms import *
 
 # Create your views here.
 def index(request):
@@ -37,7 +40,19 @@ def signin(request):
             login(request, user)
             messages.sucess(request, "You have logged in successfully")
             redirect('/project')
-    return render(request, 'login.html')        
+    return render(request, 'login.html')  
+
+@login_required
+def upload_project(request):
+    if request.method=='POST':
+        form=ProjectForm(request.POST, request.FILES )
+        if form.is_valid():
+            project=form.save(commit=False)
+            project.user=request.user
+            project.save()
+            messages.success("We have successfully received the projects details")
+            return redirect('/index')
+    return render(request, 'project.html', {'form':form})       
 
 def signout(request):
     logout(request)
