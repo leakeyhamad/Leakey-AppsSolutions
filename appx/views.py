@@ -42,6 +42,7 @@ def signin(request):
             redirect('/project')
     return render(request, 'login.html')  
 
+
 @login_required
 def upload_project(request):
     if request.method=='POST':
