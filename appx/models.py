@@ -16,8 +16,8 @@ class Project(models.Model):
     mvp=models.CharField(max_length=150)
     technologies=models.CharField(max_length=100)
     size=models.CharField(max_length=10, choices=SIZE)
-    fullnames=models.CharField()
-    contacts=models.CharField()
+    fullnames=models.CharField(max_length=30)
+    contacts=models.CharField(max_length=13)
     user=models.ForeignKey(User, on_delete=models.CASCADE, related_name='project')
 
     def __str__(self):
@@ -29,7 +29,7 @@ class Project(models.Model):
 
 class Status(models.Model):
     STATUSES=Choices('draft','published')
-    status = models.IntegerField(choices=STATUSES, default=STATUSES.draft, max_length=20)
+    status = models.IntegerField(choices=STATUSES, default=STATUSES.draft)
     user=models.OneToOneField(User, on_delete=models.CASCADE)
     project=models.OneToOneField(Project, on_delete=models.CASCADE)
     # pending=models.BooleanField(verbose_name=('pending'), default=False)
