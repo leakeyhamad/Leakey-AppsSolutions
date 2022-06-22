@@ -1,13 +1,36 @@
 {% load static %}
-        <p>Logo</p>
-        <a href="/">Home</a>
-        <hr> {%if user.is_authenticated %}
-        <a href="/logout">Log Out</a>
-        <hr> {%endif%}
 
-        {% if user.is_authenticated %}
-            <span class="text-muted" style="font-weight:bold;font-size: 20px;">{{user.username}}</span>
-        {%else%}
-        <a href="{%url 'register' %}" class="f-12 font-weight-bold mr-3 ml-auto nav-link text-white-50">Register</a>
-        <a href="{%url 'login' %}" class="f-12 font-weight-bold mr-3 ml-auto nav-link text-white-50">Login</a>
-        {%endif%
+<div class="container-fluid" style=" margin-bottom: 9%;">
+    <nav class="navbar navbar-expand-lg  fixed-top shadow-sm" style="background-color: rgb(37, 37, 37);">
+
+        <!--  Show this only on mobile to medium screens  -->
+            <a class="navbar-brand d-lg-none" href="{% url 'index' %}"><b class="lg"><span class="logo">AppX</span>Solutions</b></a>
+        
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        
+        <!--  Use flexbox utility classes to change how the child elements are justified  -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarToggle">
+        
+            <div class="navbar-nav">
+                <a class="nav-link text-white" href="{% url 'index' %}"><span  class="mynavitems">Home</span></a>                  
+            </div>
+            <div class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                <span class="text-muted" style="font-weight:bold;font-size: 20px;">{{user.username}}</span>               
+                <div class="col-md-2" style="text-align: center; padding-top: 1vw; font-size: 1vw; color:black; display: flex;justify-content: space-around;">
+                    <a  style="color:white;"href="{% url 'project' %}" >Submit project</a>
+                </div>
+                <a href="/logout">Log Out</a>
+
+                {% else %}
+                <li style="list-style: none;">
+                    <a href="{%url 'register' %}" class="f-12 font-weight-bold mr-3 ml-auto nav-link text-white-50">Register</a>
+                    <a href="{%url 'login' %}" class="f-12 font-weight-bold mr-3 ml-auto nav-link text-white-50">Login</a>
+                </li>
+                {% endif %}   
+                </div>
+            </div>    
+    </nav>
+</div>
