@@ -28,7 +28,6 @@ def signup(request):
          redirect('/login')
     return render(request,'register.html')
 
-
 def signin(request):
     if request.method=='POST':
         username=request.POST["username"]
@@ -39,8 +38,6 @@ def signin(request):
             messages.sucess(request, "You have logged in successfully")
             redirect('/project')
     return render(request, 'login.html')        
-
-
 
 def signout(request):
     logout(request)
