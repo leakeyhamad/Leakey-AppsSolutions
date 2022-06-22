@@ -41,6 +41,7 @@ def signin(request):
     return render(request, 'login.html')        
 
 
+
 def signout(request):
     logout(request)
     redirect(request, 'index.html') 
