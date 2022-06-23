@@ -3,16 +3,37 @@
 
 {% block content %}
 <div class="container-fluid" id="proj">
-<div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8" id="project">
-        <form action="{% url 'upload_business' %}" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {% bootstrap_form projectform %}
-            <input type="submit" class="btn btn-primary" value="Submit Project">
-        </form>
-    </div>
-    <div class="col-md-2"></div>
+   
+    <div class="row">
+        <h3>Project Details</h3>
+        <div class="col-md-2"></div>
+        <div class="col-md-8" id="project">
+            <form action="{% url 'upload_business' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form projectform %}
+                <input type="submit" class="btn btn-primary" value="Submit Project">
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>  
+    
+    <!--project status-->
+    <div class="row">
+        <h3>Project Status</h3>
+        <div>
+            <h4>A project can have the following status</h4>
+            <h5>1. Draft</h5>
+            <p>At this stage, the project development process is still ongoing</p><br>
+            
+            <h5>2. Published</h5>
+            <p>At this stage, the project is complete and already deployed.</p><br>
+        </div>
+        <div>
+            <a class="btn btn-primary"  href="{% url 'status' %}" style="border-radius: 5px;" > <b>Status</b></a>
+        </div>
+    </div> 
+
 </div>
-</div>
+
+
 {% endblock %}

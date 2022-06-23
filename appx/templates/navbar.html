@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-lg  fixed-top shadow-sm ">
 
         <!--  Show this only on mobile to medium screens  -->
-            <a class="navbar-brand f-12 font-weight-bold" href="{% url 'index' %}"> AppXSolutions </a>
+            <a class="navbar-brand f-16 font-weight-bold" href="{% url 'index' %}"> AppXSolutions </a>
         
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,8 @@
                     <a href="{%url 'register' %}" class="f-12 font-weight-bold mr-3 ml-auto nav-link text-white-50">Register</a>
                     <a href="{%url 'login' %}" class="f-12 font-weight-bold mr-3 ml-auto nav-link text-white-50">Login</a>
 
-                {% endif %}   
+                {% endif %} 
+                <a href="#contact" class="f-12 font-weight-bold mr-3 ml-auto nav-link text-white-50" >Contacts</a> 
                 </div>
             </div>    
     </nav>

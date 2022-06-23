@@ -1,4 +1,7 @@
-intro{
-    margin-top: 120px;
-    margin-bottom: 120px;
+.intro1{
+    margin-top: 90px;
+    margin-bottom: 20px;
+}
+#heading{
+    font-weight: 600;
 }

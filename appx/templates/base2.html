@@ -21,6 +21,26 @@
 </head>
 <body style="font-family: 'Poppins', sans-serif;">
 
+    <!--navbar-->
+    <div class="container-fluid mx-5 " style=" margin-bottom: 9%;">
+        <nav class="navbar navbar-expand-lg  fixed-top shadow-sm ">
+    
+            <!--  Show this only on mobile to medium screens  -->
+                <a class="navbar-brand f-16 font-weight-bold" href="{% url 'index' %}"> AppXSolutions </a>
+            
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            
+            <!--  Use flexbox utility classes to change how the child elements are justified  -->
+                <div class="collapse navbar-collapse justify-content-between" id="navbarToggle">
+            
+                <div class="navbar-nav">
+                    <a class="nav-link f-12 font-weight-bold" href="{% url 'index' %}"><span  class="mynavitems">Home</span></a>                  
+                </div>  
+        </nav>
+    </div>
+
     {% block content %}
     {% endblock content %}
     
