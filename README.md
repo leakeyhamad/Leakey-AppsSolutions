@@ -1,7 +1,7 @@
 # AppX Solutions
 
 ## Description
-Django web application that allows users to submit project details that they would like us to develop. Users can also post comments and view the project/app status..
+Django web application that allows users to submit project details that they would like us to develop. Users can also post comments and only logged in users view the project/app status.
 
 ## Author
 Nazarena Wambura.</br>
@@ -13,8 +13,8 @@ Nazarena Wambura.</br>
 ![AppX Solution](./appx/static/images/admin.png)
 ### Signup/Login
 ![AppX Solution](./appx/static/images/login.png)
-<!-- ### Project Status
-![AppX Solution](./appx/static/images) -->
+### Project Status
+![AppX Solution](./appx/static/images/status.png)
 
 ## User Story
 1. User should be able to sign up and login.
