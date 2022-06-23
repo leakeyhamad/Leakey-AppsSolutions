@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE
-from model_utils import Choices  #used foe status fields
+from model_utils import Choices  #used for status fields
 
 # Create your models here.
 class Project(models.Model):
