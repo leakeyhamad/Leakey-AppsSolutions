@@ -15,7 +15,7 @@ def home(request):
 
 
 def signup(request):
-    if request.methodd=='POST':
+    if request.method=='POST':
          username=request.POST["username"]
          email=request.POST["email"]
          password1=request.POST["password1"]

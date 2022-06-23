@@ -1,5 +1,7 @@
-
+{% extend 'base2.html' %}
 {% load static%}
+{% block content %}
+{{ block.super }}
 
 <section class="vh-100" style="background-color: #c8c8c8;">
     <div class="container py-5 h-100">
@@ -49,4 +51,6 @@
       </div>
     </div>
   </section>
+
+  {% endblock %}
   
