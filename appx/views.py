@@ -50,6 +50,19 @@ def signout(request):
     redirect(request, 'index.html') 
 
 
+def comment(request):
+    if request.method=='POST':
+        form=CommentForm(request.POST, request.FILES)
+        if form.is_valid():
+            comment=form.save(commit=False)
+            comment.user=request.user
+            comment.save()
+            return redirect('index')
+    else:
+        form=CommentForm()
+    return render(request, 'comment.html',{'form':form})  
+
+
 @login_required
 def upload_project(request):
     if request.method=='POST':
@@ -64,16 +77,5 @@ def upload_project(request):
         form=ProjectForm()        
     return render(request, 'project.html', {'form':form}) 
 
-@login_required
-def comment(request):
-    if request.method=='POST':
-        form=CommentForm(request.POST, request.FILES)
-        if form.is_valid():
-            comment=form.save(commit=False)
-            comment.user=request.user
-            comment.save()
-            return redirect('index')
-    else:
-        form=CommentForm()
-    return render(request, 'comment.html',{'form':form})            
+          
 
