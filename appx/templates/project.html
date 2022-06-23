@@ -1,39 +1,29 @@
 {%extends 'base2.html'%}
 {% load bootstrap4 %}
-
 {% block content %}
-<div class="container-fluid" id="proj">
-   
-    <div class="row">
-        <h3>Project Details</h3>
-        <div class="col-md-2"></div>
-        <div class="col-md-8" id="project">
-            <form action="{% url 'upload_project' %}" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                {% bootstrap_form projectform %}
-                <input type="submit" class="btn btn-primary" value="Submit Project">
-            </form>
-        </div>
-        <div class="col-md-2"></div>
-    </div>  
+
+<div class="container-fluid" style="background-color:rgb(211, 217, 226) ; margin-top: -4%;" >
+
+    <div class="container my-5" id="proj">   
+        <div class="row"><br>
+            <div class="col-md-8 mt-5" id="project">
+                <h3>Project Details</h3>
+                <form action="{% url 'upload_project' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <input type="submit" class="btn btn-primary" id="submitForm" value="Submit Project">
+                </form>
+            </div>
+             <!--project status-->
+            <div class="col-md-4 mt-5" style="grid-auto-rows:block ;"> 
+                <h3>Project Status</h3> 
+                <a style="border-radius: 5px;" class="btn btn-primary" href="{% url 'status' %}" > <b>Status</b></a>
+            </div>
+        </div> 
+    </div>        
     
-    <!--project status-->
-    <div class="row">
-        <h3>Project Status</h3>
-        <div>
-            <h4>A project can have the following status</h4>
-            <h5>1. Draft</h5>
-            <p>At this stage, the project development process is still ongoing</p><br>
-            
-            <h5>2. Published</h5>
-            <p>At this stage, the project is complete and already deployed.</p><br>
-        </div>
-        <div>
-            <a class="btn btn-primary"  href="{% url 'status' %}" style="border-radius: 5px;" > <b>Status</b></a>
-        </div>
-    </div> 
+
 
 </div>
-
 
 {% endblock %}

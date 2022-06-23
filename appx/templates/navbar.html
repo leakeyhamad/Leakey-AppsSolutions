@@ -19,7 +19,7 @@
             <div class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
                 <span class="text-dark f-12 font-weight-bold mr-3 ml-auto nav-link" >{{user.username}}</span>                         
-                <a class="f-12 font-weight-bold mr-3 ml-auto nav-link text-white-50" href=" url 'index' ">Log Out</a>
+                <a class="f-12 font-weight-bold mr-3 ml-auto nav-link text-white-50" href="{% url 'signout' %}" >Log Out</a>
 
                 {% else %}
                     <a href="{%url 'register' %}" class="f-12 font-weight-bold mr-3 ml-auto nav-link text-white-50">Register</a>

@@ -10,6 +10,9 @@ urlpatterns = [
     path('login/',views.signin, name="login"),
     path('upload/', views.upload_project, name="upload_project"),
     path('comment/', views.comment, name='comment'),
+    path('logout/', views.logout_view, name="signout"),
+    path('status/', views.status, name="status"),
+
 ]
 
 if settings.DEBUG:

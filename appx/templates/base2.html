@@ -44,15 +44,23 @@
     {% block content %}
     {% endblock content %}
     
+
     <!--jquery cdn link-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!--js popper cdn link-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <!--bootstrap min js link-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!--jquery cdn link-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!--local js-->
     <script src="{% static 'js/script.js' %}"></script>
     {% block javascript %}
     {% endblock javascript %}
+    <script>
+        $("#submitForm").click(function() {
+           alert("We have received you Form Successfully.");
+        });
+     </script>
 </body>
 </html>

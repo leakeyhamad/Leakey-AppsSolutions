@@ -17,8 +17,9 @@
                         <h3 style="font-weight: 600;"> Give Us The Task &</h3>
                         <h3 style="font-weight: 600;" >We Deliver A Standard App</h3><br>
                         <a class="fs-3" href="{%url 'register' %}"><b>SignUp to Submit Project/ View Status<b></b></a>
-                        <a class="btn btn-primary"  href="{% url 'project' %}" style="border-radius: 5px;" > <b>Project</b></a>
-                        <br><br><br><br><br>
+                        <a class="btn btn-primary"  href="{% url 'upload_project' %}" style="border-radius: 5px;" > <b>Project</b></a>
+                        <a style="border-radius: 5px;" class="btn btn-primary" href="{% url 'comment' %}" > <b>Add/View comments</b></a>
+                        <br><br><br><br>
                     </div>
                 </div>
                 <div class="col-md-2"></div>
@@ -38,9 +39,6 @@
                   internet portal management are few that we offer. Satisfied clients 
                   around the globe bear testimony to the quality of our work.
             </p>
-        </div>
-        <div class="div">
-            <a style="border-radius: 5px;" class="btn btn-primary" href="{% url 'comment' %}" > <b>Add comment</b></a>
         </div>
     </div>
     <!--End of about us-->

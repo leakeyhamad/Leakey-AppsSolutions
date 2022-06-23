@@ -6,6 +6,8 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from .models import *
 from .forms import *
 
@@ -40,30 +42,31 @@ def signin(request):
         user=authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            messages.sucess(request, "You have logged in successfully")
-            return redirect('project')
+            messages.success(request, "You have logged in successfully")
+            return redirect('index')
     return render(request, 'login.html')  
 
 
-def signout(request):
+def logout_view(request):
     logout(request)
-    redirect(request, 'index.html') 
+    return redirect('index') 
 
 
 def comment(request):
+    comments=Comment.objects.all()
     if request.method=='POST':
         form=CommentForm(request.POST, request.FILES)
         if form.is_valid():
             comment=form.save(commit=False)
             comment.user=request.user
             comment.save()
-            return redirect('index')
+            return redirect('comment')
     else:
         form=CommentForm()
-    return render(request, 'comment.html',{'form':form})  
+    return render(request, 'comment.html',{'form':form, 'comments':comments})  
 
 
-@login_required
+@login_required(login_url='login')
 def upload_project(request):
     if request.method=='POST':
         form=ProjectForm(request.POST, request.FILES)
@@ -71,12 +74,15 @@ def upload_project(request):
             project=form.save(commit=False)
             project.user=request.user
             project.save()
-            messages.success("We have successfully received the projects details")
+            messages.success(request,"We have successfully received the projects details")
             return redirect('index')
     else:
         form=ProjectForm()        
     return render(request, 'project.html', {'form':form}) 
 
+@login_required(login_url='login') 
+def status(request):
+    status=Status()
+    return render(request,'status.html')
 
-          
 

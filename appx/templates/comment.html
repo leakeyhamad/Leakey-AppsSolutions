@@ -2,32 +2,41 @@
 {% load bootstrap4 %}
 
 {% block content %}
-    <div class="container-fluid">
+<div class="container-fluid" style="background-color:rgb(211, 217, 226) ; margin-top: -4%;" >
+    <div class="container">
+        <h3 style="margin-left: 30px; font-weight: 600;" >Write a Comment</h3>
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <form action="{% url 'comment' %}" method="post">
                     {% csrf_token %}
-                    {% bootstrap_form commentform %}
+                    {% bootstrap_form form %}
                     <input type="submit" class="btn btn-primary" value="Comment">
                 </form>
             </div>
             <div class="col-md-2"></div>
         </div>
-
-        <!--display comments-->
-        <div class="row">
-            <h3>Comment Corner</h3>
-            <div class="col-md-2"></div>
-            {%for critic in comments %}
-            <div class="col-md-6">
-                <span class="comment">
-                    {{critic.comment}}
-                </span>
-            </div>
-            {% endfor %}
-            <div class="col-md-2"></div>
-        </div>
-
     </div>
+
+    <!--display comments-->
+    <div class="container mt-5">
+        <h3 style="margin-left: 30px; font-weight: 600;" >View Comments</h3><br>
+        <div class="row">
+            <ol>
+            {%for critic in comments %}
+            <li class="col-md-12">
+                <p class="comment">
+                    {{critic.comment}}
+                </p>
+                <p>By: {{critic.user.username}}... <span>Created On:{{critic.created_on | date:"d M Y"}}</span></p>
+            </li>
+            {% endfor %}
+            </ol>
+            
+        </div>
+    </div>
+    <!--End of Comments-->
+
+</div> 
+    
 {% endblock %}
