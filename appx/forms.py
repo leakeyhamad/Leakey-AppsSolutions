@@ -7,12 +7,12 @@ from .models import *
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = '__all__'
+        exclude= ['user']
 
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields=['comment',] 
+        exclude=['user'] 
 
 
 

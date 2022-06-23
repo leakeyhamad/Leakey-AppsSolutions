@@ -21,7 +21,7 @@ def signup(request):
          password1=request.POST["password1"]
          password2=request.POST["password2"]
          if password1!=password2:
-             messages.error("incorrect password/ passwords do not match!")
+             messages.error(request, "incorrect password/ passwords do not match!")
              return redirect('register')
          new_user=User.objects.create_user(
              username=username,
@@ -29,7 +29,7 @@ def signup(request):
              password=password1,
          )
          new_user.save()
-         redirect('login')
+         return redirect('login')
     return render(request,'register.html')
 
 
@@ -41,7 +41,7 @@ def signin(request):
         if user is not None:
             login(request, user)
             messages.sucess(request, "You have logged in successfully")
-            redirect('project')
+            return redirect('project')
     return render(request, 'login.html')  
 
 
@@ -70,7 +70,7 @@ def comment(request):
         form=CommentForm(request.POST, request.FILES)
         if form.is_valid():
             comment=form.save(commit=False)
-            comment.user=request.uset
+            comment.user=request.user
             comment.save()
             return redirect('index')
     else:
