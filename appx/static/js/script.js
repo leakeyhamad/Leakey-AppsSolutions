@@ -1,3 +1,3 @@
 $("#submitForm").click(function() {
-    alert("The Form has been Submitted.");
+    alert("The Form has been Submitted Successfully.");
  });
