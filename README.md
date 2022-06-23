@@ -16,6 +16,9 @@ Nazarena Wambura.</br>
 ### Project Status
 ![AppX Solution](./appx/static/images/status.png)
 
+## Slides/Demo Link
+[Slides](https://docs.google.com/presentation/d/1kQBPXVuc_TnvDzG-F7UHBl7B58dP88P6cBEwzRZHA8E/edit)
+
 ## User Story
 1. User should be able to sign up and login.
 2. User can submit project details via form.
