@@ -21,9 +21,9 @@ Nazarena Wambura.</br>
 
 ## User Story
 1. User should be able to sign up and login.
-2. User can submit project details via form.
-3. User can view project status.
-4. User can write a comment 
+2. User can write a comment 
+3. Authenticated User can submit project details via form.
+4. Authenticated User can view project status.
 
 
 ## Behaviour Driven Development (BDD)
