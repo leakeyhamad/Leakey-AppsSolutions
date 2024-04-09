@@ -4,8 +4,7 @@
 Django web application that allows users to submit project details that they would like us to develop. Users can also post comments and only the logged in users view the project/app status.
 
 ## Author
-Nazarena Wambura.</br>
-[Github Account](https://github.com/nazarena254)
+Leakey Otieno.</br>
 
 ### Homepage
 ![AppX Solution](./appx/static/images/homepage.png)
@@ -89,10 +88,7 @@ Nazarena Wambura.</br>
 
 ## Support & Contact Information
 For any further inquiries, bugs, contributions or comments, reach me at:<br>
-Email:<nancyngunjiri1@gmail.com> <br>
-[Linkedin](https://www.linkedin.com/in/nazarena-wambura/)
+Email:<otienoleakey287@gmail.com> <br>
 
-## License
-[MIT License](https://github.com/nazarena254/AppX/blob/master/LICENSE)<br>
-Copyright (c) 2022 **Nazarena Wambura**
+
 
