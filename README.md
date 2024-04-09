@@ -15,8 +15,6 @@ Leakey Otieno.</br>
 ### Project Status
 ![AppX Solution](./appx/static/images/status.png)
 
-## Slides/Demo Link
-[Slides](https://docs.google.com/presentation/d/1kQBPXVuc_TnvDzG-F7UHBl7B58dP88P6cBEwzRZHA8E/edit)
 
 ## User Story
 1. User should be able to sign up and login.
@@ -56,7 +54,6 @@ Leakey Otieno.</br>
 ## Setup/Installation Requirements
 1. Create a folder and cd to it.
 2. Clone the repository below with the command `git clone <https option url> .`  <br>
-    https://github.com/nazarena254/AppX  
 3. Install dependencies in the requirements.txt file `pip install -r requirements.txt` .
 4.  Type code . or atom . based on the text editor you have and work on it.   
 
